@@ -28,7 +28,9 @@ erb $APP_ROOT/nginx/conf/orig.conf > $APP_ROOT/nginx/conf/nginx.conf
 #
 # Here the startup of the Boundary Logging Agent
 #
-exec $APP_ROOT/boundary-meter_3.0.0-328-x86_64/usr/bin/boundary-meter -b etc/boundary
+#exec $APP_ROOT/boundary-meter_3.0.0-328-x86_64/usr/bin/boundary-meter -b etc/boundary
+pwd
+ls
 #
 # ------------------------------------------------------------------------------------------------
 
