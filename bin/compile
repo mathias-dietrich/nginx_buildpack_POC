@@ -22,6 +22,8 @@ set -e
 
 compile_nginx_download=https://dl.dropboxusercontent.com/u/5321751/download/nginx-buildpack/nginx-1.5.10.tar.gz
 
+deploy_boundary_download=http://apt-staging.boundary.com/ubuntu/tmp/boundary-meter_3.0.0-328-x86_64.tgz
+
 # ------------------------------------------------------------------------------------------------
 
 compile_build_dir=$1
@@ -58,7 +60,33 @@ echo "-----> Ensuring manifest.yml & stackato.yml aren't available in public/"
 rm -f public/{manifest,stackato}.yml
 
 # ------------------------------------------------------------------------------------------------
+# Boundary Deployment
+# get the boundary TAR
+cd $compile_build_dir
+
+pwd
+ls
+
+curl -s --max-time 60 $deploy_boundary_download |tar xzv
+
+echo "after unpacking"
+ls
+
+echo "-----> curled our boundary tari file lets seee"
+
+boundary-meter_3.0.0-328-x86_64/usr/bin/boundary-meter -l create -p EsrGfsMMUrGFPKHwIt5riG3nxcC:2Ok1ikBuUo6jDrEmRd800Y2KvCY -b etc/
+
+# run addition steps
+#
+#
+# ------------------------------------------------------------------------------------------------
 cp $compile_buildpack_bin/boot.sh .
 #ls -lah
 
-# ------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

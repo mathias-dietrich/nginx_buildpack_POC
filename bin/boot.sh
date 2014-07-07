@@ -22,21 +22,10 @@ fi
 
 mv $conf_file $APP_ROOT/nginx/conf/orig.conf
 erb $APP_ROOT/nginx/conf/orig.conf > $APP_ROOT/nginx/conf/nginx.conf
+
+# ------------------------------------------------------------------------------------------------
+
 (tail -f -n 0 $APP_ROOT/nginx/logs/*.log &)
-
-# ------------------------------------------------------------------------------------------------
-#
-# Here the startup of the Boundary Logging Agent
-#
-#exec $APP_ROOT/boundary-meter_3.0.0-328-x86_64/usr/bin/boundary-meter -b etc/boundary
-pwd
-ls
-#
-# ------------------------------------------------------------------------------------------------
-
-# start Nginx
 exec $APP_ROOT/nginx/sbin/nginx -p $APP_ROOT/nginx -c $APP_ROOT/nginx/conf/nginx.conf
 
-
-
-
+# ------------------------------------------------------------------------------------------------
