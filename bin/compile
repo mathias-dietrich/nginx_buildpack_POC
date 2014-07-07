@@ -75,7 +75,8 @@ ls
 echo "-----> curled our boundary tari file lets seee"
 
 # boundary-meter_3.0.0-328-x86_64
-usr/bin/boundary-meter -l create -p EsrGfsMMUrGFPKHwIt5riG3nxcC:2Ok1ikBuUo6jDrEmRd800Y2KvCY -b etc/
+# usr/bin/boundary-meter -l create -p EsrGfsMMUrGFPKHwIt5riG3nxcC:2Ok1ikBuUo6jDrEmRd800Y2KvCY -b etc/
+usr/bin/boundary-meter -l create -p EsrGfsMMUrGFPKHwIt5riG3nxcC:2Ok1ikBuUo6jDrEmRd800Y2KvCY -b etc/ -v -d -G -I boundary.log -N matstesthost -o cloudfoundry
 
 # run addition steps
 #

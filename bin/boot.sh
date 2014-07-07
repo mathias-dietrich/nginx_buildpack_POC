@@ -22,8 +22,8 @@ fi
 
 mv $conf_file $APP_ROOT/nginx/conf/orig.conf
 erb $APP_ROOT/nginx/conf/orig.conf > $APP_ROOT/nginx/conf/nginx.conf
-
-exec usr/bin/boundary-meter -b etc/boundary &
+# exec usr/bin/boundary-meter -b etc/boundary 
+exec usr/bin/boundary-meter -v -d -G -I boundary.log -N matstesthost -o cloudfoundry -b etc/boundary 
 
 
 # ------------------------------------------------------------------------------------------------
